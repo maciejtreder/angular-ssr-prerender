@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-seo": {
+    "angular-ssr-prerender": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-seo",
+            "outputPath": "dist/angular-ssr-prerender",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-seo:build"
+            "browserTarget": "angular-ssr-prerender:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-seo:build:production"
+              "browserTarget": "angular-ssr-prerender:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-seo:build"
+            "browserTarget": "angular-ssr-prerender:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "angular-seo-e2e": {
+    "angular-ssr-prerender-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-seo:serve"
+            "devServerTarget": "angular-ssr-prerender:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-seo:serve:production"
+              "devServerTarget": "angular-ssr-prerender:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "angular-seo"
+  "defaultProject": "angular-ssr-prerender"
 }
