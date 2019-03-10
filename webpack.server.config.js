@@ -7,6 +7,7 @@
     module.exports = {
       entry: {
         server: './server.ts',
+        prerender: './prerender.ts'
       },
       target: 'node',
       resolve: { extensions: ['.ts', '.js'] },
