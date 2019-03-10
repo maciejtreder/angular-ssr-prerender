@@ -1,0 +1,8 @@
+{
+  "universal": {
+    "project": "angular-seo",
+    "skipInstall": false,
+    "directory": ".",
+    "http": true
+  }
+}
