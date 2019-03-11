@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Story } from '../model/story';
 import { ActivatedRoute } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -26,9 +27,14 @@ import { ActivatedRoute } from '@angular/router';
     }
   `]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   public stories: Story[] = this.router.snapshot.data.stories;
 
-  constructor(private router: ActivatedRoute) { }
+  constructor(private router: ActivatedRoute, private titleService: Title, private metaService: Meta) { }
+
+  public ngOnInit(): void {
+    this.titleService.setTitle('Recent entries from Hackers-news!')
+    this.metaService.updateTag({name: 'description', content: 'Checkout recent stories!'});
+  }
 }
