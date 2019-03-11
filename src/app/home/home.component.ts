@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { DataService } from '../data.service';
-import { Observable } from 'rxjs';
 import { Story } from '../model/story';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   template: `<h1>Newest stories:</h1>
   <ul>
-    <li *ngFor="let story of stories | async">
+    <li *ngFor="let story of stories">
       <span>{{story.time * 1000 | date}}</span>
       <a href={{story.url}} target="_blank">{{story.title}} <i>by {{story.by}}</i></a>
     </li>
@@ -29,7 +28,7 @@ import { Story } from '../model/story';
 })
 export class HomeComponent {
 
-  public stories: Observable<Story[]> = this.dataService.getStories();
+  public stories: Story[] = this.router.snapshot.data.stories;
 
-  constructor(private dataService: DataService) { }
+  constructor(private router: ActivatedRoute) { }
 }
